@@ -11,7 +11,8 @@ defmodule Cards do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hears", "Diamonds"]
 
-    for suit <- suits, value <- values do
+    for suit <- suits,
+        value <- values do
       "#{value} of #{suit}"
     end
   end
@@ -33,12 +34,12 @@ defmodule Cards do
   end
 
   @doc """
-
+    Deals a hand to the player from given deck and hand size
   """
 
   def deal(deck, hand_size) do
-    {hand, rest} = Enum.split(deck, hand_size)
-    [hand, rest]
+    {hand, _rest} = Enum.split(deck, hand_size)
+    hand
   end
 
   def save(deck, filename) do
@@ -54,7 +55,8 @@ defmodule Cards do
   end
 
   def create_hand(hand_size) do
-
+    Cards.create_deck()
+    |> Cards.shuffle()
+    |> Cards.deal(hand_size)
   end
-
 end
