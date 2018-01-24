@@ -27,6 +27,11 @@ defmodule Cards do
 
   @doc """
     Checks if the deck contains a given card
+
+  ## Examples
+      iex> deck = Cards.create_deck
+      iex> contains = Cards.contains?(deck, "Ace of Spades")
+      true
   """
 
   def contains?(deck, hand) do
@@ -37,8 +42,8 @@ defmodule Cards do
     Deals a hand to the player from given deck and hand size
 
   ## Examples
-      iex > deck = Cards.create_deck
-      iex > hand = Cards.deal(deck, 1)
+      iex> deck = Cards.create_deck
+      iex> hand = Cards.deal(deck, 1)
       ["Ace of Spades"]
   """
 
